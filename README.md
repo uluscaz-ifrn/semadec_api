@@ -35,4 +35,4 @@ O banco de dados segue uma estrutura relacional com as seguintes entidades princ
 - `equipes`
 - `equipe_atletas` (pivot de relação muitos-para-muitos)
 
-![Modelo ER](./caminho/para/o/diagrama.png)
+(./diagrama_bd.png)
