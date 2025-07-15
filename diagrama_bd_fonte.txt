@@ -1,0 +1,57 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table equipes {
+  id integer
+  modalidade_id integer
+  curso_id integer
+  nome integer
+  validado bool
+  genero enum('masculino','feminino','misto')
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table modalidades {
+  id integer [primary key]
+  nome varchar
+  ativo bool
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table cursos {
+  id integer [primary key]
+  nome varchar
+  ativo bool
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table atletas {
+  id integer [primary key]
+  curso_id integer
+  nome varchar
+  genero enum('masculino','feminino')
+  created_at timestamp
+  updated_at timestamp
+}
+
+Table equipe_atletas {
+  id integer [primary key]
+  equipe_id integer
+  atleta_id integer
+  created_at timestamp
+  updated_at timestamp
+  ativo bool
+}
+
+Ref: atletas.curso_id > cursos.id // many-to-one
+
+Ref: equipes.curso_id > cursos.id
+
+Ref: equipes.modalidade_id > modalidades.id
+
+Ref: equipe_atletas.atleta_id > atletas.id
+
+Ref: equipe_atletas.equipe_id > equipes.id
